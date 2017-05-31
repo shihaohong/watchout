@@ -36,7 +36,7 @@ var spawnFred = function(data) {
 
   fred.enter().append('image')
     .attr('class', 'player')
-    .attr('xlink:href', 'player.jpg')
+    .attr('xlink:href', 'player.png')
     .attr('x', function() {return player.x})
     .attr('y', function() {return player.y})
 };
@@ -50,7 +50,7 @@ var update = function(data) {
   // UPDATE EXISTING ASTEROIDS
   asteroids.data(data)
     .transition()
-      .duration(500)
+      .duration(1000)
       .attr('x', function(d) {return d.x})
       .attr('y', function(d) {return d.y});
 
@@ -106,7 +106,7 @@ var checkCollision = gameBoard.selectAll('image')
     } else {
       fredSwap = true;
       gameBoard.selectAll('.player')
-        .attr('xlink:href', 'player.jpg');
+        .attr('xlink:href', 'player.png');
     }
 
   });
@@ -116,5 +116,5 @@ setInterval(function() {
   updateScoreBoard();
   newPosition();
   update(enemies);
-}, 500);
+}, 1000);
 
